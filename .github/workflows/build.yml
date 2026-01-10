@@ -10,11 +10,11 @@ permissions:
   id-token: write
 
 jobs: 
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps: 
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Compile LaTeX
@@ -27,15 +27,7 @@ jobs:
           mkdir public
           mv notes.pdf public/index.pdf
 
-      - name: Upload pages artifact
-        uses: actions/upload-pages-artifact
+      - name: Deploy to Github Pages
+        uses: actions/deploy-pages@v4
         with: 
           path: public
-
-deploy: 
-  needs: build
-  runs-on: ubuntu-latest
-  environment: 
-    name: github-pages
-
-  steps: actions/deploy-pages@v4

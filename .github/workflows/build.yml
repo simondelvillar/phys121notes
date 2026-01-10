@@ -25,7 +25,7 @@ jobs:
       - name: Prepare site
         run: |
           mkdir public
-          mv notes.pdf public/index.pdf
+          mv main.pdf public/index.pdf
 
       - name: Deploy to Github Pages
         uses: actions/deploy-pages@v4

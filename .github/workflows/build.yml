@@ -1,0 +1,41 @@
+name: Build Physics Notes
+
+on:
+  push:
+     branches: [ "main" ]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs: 
+  build:
+    runs-on: ubuntu-latest
+
+    steps: 
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX
+        uses: xu-cheng/latex-action@v3
+        with: 
+          root_file: main.tex 
+
+      - name: Prepare site
+        run: |
+          mkdir public
+          mv notes.pdf public/index.pdf
+
+      - name: Upload pages artifact
+        uses: actions/upload-pages-artifact
+        with: 
+          path: public
+
+deploy: 
+  needs: build
+  runs-on: ubuntu-latest
+  environment: 
+    name: github-pages
+
+  steps: actions/deploy-pages@v4

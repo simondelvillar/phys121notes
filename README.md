@@ -12,6 +12,7 @@ Most of the content on here is from the in-class lecture. Based on the class not
 - **`main.tex`** -- The LaTeX source file 
 - The compiled PDF is automatically deployed so you can view it online.
 - **Automatic updates** -- Every time I add/change something after a lecture, the site updates itself.
+- **Recent updates section** -- keeps track of changes I make and organizes it into class days
 
 ## Live site
 You can always check the most recent notes here: 

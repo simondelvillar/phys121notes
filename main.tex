@@ -9,12 +9,13 @@
 \usepackage{enumitem}
 \usepackage{titlesec}
 \usepackage{fancyhdr}
-\usepackage{hyperref}
+\usepackage[colorlinks=true,linkcolor=black]{hyperref}
 \usepackage{physics}
 \usepackage{tikz}
 \usetikzlibrary{calc,angles,quotes}
 \usepackage{cancel}
 \usepackage{array}
+\usepackage{tcolorbox}
 
 % --------------------
 % Page Style
@@ -41,12 +42,13 @@
 % --------------------
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\mat}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+\newcommand{\changelink}[2]{\hyperref[#1]{#2}}
 
 % --------------------
 % Document Info
 % --------------------
 \title{\vspace{-2em}Physics II — Lecture Notes}
-\author{Simon}
+\author{Based on class notes by Jake Bobowski}
 \date{Last updated: \today}
 
 % --------------------
@@ -58,6 +60,27 @@
 \vspace{-1em}
 \tableofcontents
 \newpage
+
+\section*{Recent Updates}
+\addcontentsline{toc}{section}{Recent Updates}
+
+\begin{tcolorbox}[
+  title={Recent Updates \hfill \textit{Last updated: \today}},
+  colback=gray!5,
+  colframe=black!40,
+  boxrule=0.5pt,
+  arc=4pt,
+  fonttitle=\bfseries
+]
+\begin{itemize}
+  \item \textbf{Jan 9}: Added content to Lecture 2:
+  \subitem\changelink{sec:lecture2-rotational-motion}{Lecture 2 -- Concepts of Rotational Motion and General Oscillations}
+  \subitem\changelink{sec:lecture2.1-mass-on-spring}{Subsection 2.1 -- Mass on a Spring}
+  \subitem\changelink{sec:lecture2.2-pendulum}{Subsection 2.2 -- Pendulum}
+  \subitem\changelink{sec:aside2.2.1-rotational-motion}{Aside -- Rotational Motion}
+  \subitem\changelink{sec:aside2.3.1-small-angle-approx}{Aside -- Small Angle Approximation}
+\end{itemize}
+\end{tcolorbox}
 
 % =====================================================
 
@@ -126,10 +149,14 @@ When one touches a table, or any other object, one does not physically come in c
 
 \noindent In this picture, we can conclude that $\vec{F_b} \perp \vec{B} \perp \vec{v}$. This is a special case of circular motion as $\vec{F_b} \perp \vec{v}$.
 
-\section{Concepts of Rotational Motion and General Oscillations}
 
+% =====================================================
+
+\section{Concepts of Rotational Motion and General Oscillations}
+\label{sec:lecture2-rotational-motion}
 \subsection{Mass on a Spring}
-The spring force on a mass $m$ is given through the formula $F_s = -kx$. This is classified as a restoring force.
+\label{sec:lecture2.1-mass-on-spring}
+The spring fore on a mass $m$ is given through the formula $F_s = -kx$. This is classified as a restoring force.
 
 \vspace{1em}
 
@@ -183,7 +210,10 @@ So,
 
 Notice $T$ of the motion is independent of the amplitude. 
 
+% =====================================================
+
 \subsection{Pendulum}
+\label{sec:lecture2.2-pendulum}
 Let us try to relate the problem of an oscillating pendulum to the mass on a spring.
 
 \begin{center}
@@ -264,7 +294,10 @@ In the x-direction:
 
 \noindent Equation (3) is not quite the same as the mass on the spring. We can make some manipulations to make it similar. 
 
+% =====================================================
+
 \subsubsection{Aside: Rotational Motion}
+\label{sec:aside2.2.1-rotational-motion}
 \vspace{1em}
 
 \[
@@ -386,6 +419,9 @@ In the x-direction:
 
 \vspace{0.5em}
 
+% =====================================================
+
+
 \subsection{Pendulum Continued}
 What about the speed?
 \begin{align*}
@@ -425,7 +461,10 @@ where $\theta$ is the angular position. Going back to our mass on a spring,
 
 \noindent where $x$ is the linear position of a mass on a spring. These are similar but not identical. We have $\sin\theta$ instead of $\theta$. We will consider the \textbf{small angle approximation.}
 
+% =====================================================
+
 \subsubsection{Aside: Small Angle Approximation}
+\label{sec:aside2.3.1-small-angle-approx}
 
 
 \begin{center}

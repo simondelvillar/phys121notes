@@ -2,32 +2,40 @@ name: Build Physics Notes
 
 on:
   push:
-     branches: [ "main" ]
+    branches: [ "main" ]
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
-jobs: 
-  build-and-deploy:
+jobs:
+  build:
     runs-on: ubuntu-latest
 
-    steps: 
-      - name: Checkout repository
-        uses: actions/checkout@v4
+    steps:
+      - uses: actions/checkout@v4
 
       - name: Compile LaTeX
         uses: xu-cheng/latex-action@v3
-        with: 
-          root_file: main.tex 
+        with:
+          root_file: main.tex
 
       - name: Prepare site
         run: |
           mkdir public
           mv main.pdf public/index.pdf
 
-      - name: Deploy to Github Pages
-        uses: actions/deploy-pages@v4
-        with: 
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
           path: public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+    steps:
+      - name: Deploy to Pages
+        uses: actions/deploy-pages@v4

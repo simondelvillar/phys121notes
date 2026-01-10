@@ -25,6 +25,7 @@ jobs:
         run: |
           mkdir public
           mv main.pdf public/index.pdf
+          echo '<!DOCTYPE html><meta http-equiv="refresh" content="0; url=index.pdf">' > public/index.html
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

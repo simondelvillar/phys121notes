@@ -12,6 +12,7 @@
 \usepackage[colorlinks=true,linkcolor=black]{hyperref}
 \usepackage{physics}
 \usepackage{tikz}
+\usetikzlibrary{positioning}
 \usetikzlibrary{calc,angles,quotes}
 \usepackage{cancel}
 \usepackage{array}
@@ -154,11 +155,12 @@ When one touches a table, or any other object, one does not physically come in c
 
 \begin{center}
     \begin{tikzpicture}[scale=2.5]
+        \draw[->, thick] (0,0) -- (1.2,0)
+    node[right] (v) {$\vec{v}$};
 
   % Into-the-page vector
-  %\node at (0,0) {$\otimes$};
-  %\node[below left=2pt of v] {$q$};
-  %\node[above right=3pt of v] {$\vec{B}$};
+  \node at (0,0) {$\otimes$};
+  \node[above right=1pt] {$\vec{B}$};
 
   % Force vectors
   \draw[->, thick] (0,0) -- (0,1.2) node[above] {$\vec{F_{b}}$};

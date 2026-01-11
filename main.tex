@@ -70,21 +70,6 @@
   % Date: DD/MM/YY
   \the\day/\the\month/\the\numexpr\year-2000\relax\ %
   % Time: 12-hour
-  \begingroup
-    \count0=\time % minutes since midnight
-    \count1=\count0
-    \divide\count0 by 60 % hours
-    \count2=\count0 % save hours
-    \multiply\count0 by 60
-    \advance\count1 by -\count0 % minutes
-    % 12-hour conversion
-    \ifnum\count2=0 \count3=12 \def\ampm{AM}\else
-    \ifnum\count2<12 \count3=\count2 \def\ampm{AM}\else
-      \count3=\numexpr\count2-12\relax \def\ampm{PM}\fi
-    \fi
-    \ifnum\count3=0 \count3=12\fi
-    \the\count3:\ifnum\count1<10 0\fi\the\count1~\ampm
-  \endgroup
 }
 % --------------------
 % Document Info
@@ -106,7 +91,7 @@
 \addcontentsline{toc}{section}{Recent Updates}
 
 \begin{tcolorbox}[
-  title={Recent Updates \hfill Last updated: \compactdatetime},
+  title={Recent Updates \hfill Last updated: \compactdatetime 8:00PM},
   colback=gray!5,
   colframe=black!40,
   boxrule=0.5pt,

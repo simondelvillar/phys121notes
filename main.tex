@@ -9,7 +9,8 @@
 \usepackage{enumitem}
 \usepackage{titlesec}
 \usepackage{fancyhdr}
-\usepackage[colorlinks=true,linkcolor=black]{hyperref}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
 \usepackage{physics}
 \usepackage{tikz}
 \usetikzlibrary{positioning}
@@ -85,11 +86,12 @@
 
 \maketitle
 \vspace{-1em}
+\noindent\text{Click on a section to jump there!}
 \tableofcontents
 \newpage
 
 \begin{tcolorbox}[
-  title={Recent Updates \hfill Last updated: \compactdatetime 2:05PM},
+  title={Recent Updates \hfill Last updated: \compactdatetime 2:20PM},
   colback=gray!5,
   colframe=black!40,
   boxrule=0.5pt,
@@ -100,6 +102,7 @@
   \item \textbf{Jan 11}: Fixed graphics and small math errors: 
   \subitem\changelink{sec:lecture2.1-mass-on-spring}{Subsection 2.1 -- Mass on a Spring}
   \subitem\changelink{sec:lecture2.2-pendulum}{Subsection 2.2 -- Pendulum}
+  \subitem\changelink{sec:aside2.2.1-rotational-motion}{Aside -- Rotational Motion}
   \subitem\changelink{sec:aside2.3.1-small-angle-approx}{Aside -- Small Angle Approximation}
   
   
@@ -565,15 +568,19 @@ In the x-direction:
     % 3. Draw the horizontal radius (Solid, to the right)
     % 0:1.2cm means 0 degrees (horizontal)
     \draw (O) -- (0:1.2cm) node[midway, below] {$r$};
+
+    \node[red] at (90:1.4cm) {$s$};
     
     % 4. Draw the opposite radius (Dashed, to the left)
     % 180:1.2cm is the far left
-    \draw[dashed] (O) -- (180:1.2cm);
+    \draw[red, dashed] (O) -- (180:1.2cm);
     
+    \draw[thick, red] (0:1.2cm) arc (0:180:1.2cm);
+
     % 5. Draw the angle arrow (theta = pi)
     % It starts at 0 degrees and sweeps to 180 degrees
-    \draw [->] (0.4,0) arc (0:180:0.4cm);
-    \node at (90:0.6cm) {$\theta = \pi$};
+    \draw [red, ->] (0.4,0) arc (0:180:0.4cm);
+    \node[red] at (90:0.6cm) {$\pi$};
 
     % Origin point
     \fill (O) circle (1.2pt);
@@ -603,17 +610,17 @@ In the x-direction:
 
         % Radius lines
         \draw (O) -- (0:1.2cm) node[midway, below] {$r$};
-        \draw (O) -- (70:1.2cm);
+        \draw[red, dashed] (O) -- (70:1.2cm);
 
         % Arc corresponding to angle theta
-        \draw[thick] (0:1.2cm) arc (0:70:1.2cm);
+        \draw[thick, red] (0:1.2cm) arc (0:70:1.2cm);
 
         % Arc label s
-        \node at (35:1.45cm) {$s$};
+        \node[red] at (35:1.45cm) {$s$};
 
         % Angle theta (radians)
-        \draw[->] (0:0.45cm) arc (0:70:0.45cm);
-        \node at (35:0.7cm) {$\theta$};
+        \draw[->, red] (0:0.45cm) arc (0:70:0.45cm);
+        \node[red] at (35:0.7cm) {$\theta$};
 
     \end{tikzpicture}
     &

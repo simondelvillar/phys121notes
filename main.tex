@@ -88,10 +88,8 @@
 \tableofcontents
 \newpage
 
-\addcontentsline{toc}{section}{Recent Updates}
-
 \begin{tcolorbox}[
-  title={Recent Updates \hfill Last updated: \compactdatetime 8:00PM},
+  title={Recent Updates \hfill Last updated: \compactdatetime 2:00PM},
   colback=gray!5,
   colframe=black!40,
   boxrule=0.5pt,
@@ -99,9 +97,16 @@
   fonttitle=\bfseries
 ]
 \begin{itemize}
+  \item \textbf{Jan 11}: Fixed graphics and small math errors: 
+  \subitem\changelink{sec:lecture2.2-pendulum}{Subsection 2.2 -- Pendulum}
+  \subitem\changelink{sec:aside2.3.1-small-angle-approx}{Aside -- Small Angle Approximation}
+  
+  
   \item \textbf{Jan 10}: Added illustration to \changelink{sec:lecture2-rotational-motion}{Lecture 2 -- Concepts of Rotational Motion and General Oscillations}
   \subitem Added illustration of atom (Subsection 1.1.1)
   \subitem Added illustration of $\vec{F}$ and $\vec{E}$ (Subsection 1.1.2)
+  
+  
   \item \textbf{Jan 9}: Added content to Lecture 2:
   \subitem\changelink{sec:lecture2-rotational-motion}{Lecture 2 -- Concepts of Rotational Motion and General Oscillations}
   \subitem\changelink{sec:lecture2.1-mass-on-spring}{Subsection 2.1 -- Mass on a Spring}
@@ -449,26 +454,26 @@ Let us try to relate the problem of an oscillating pendulum to the mass on a spr
 
     % 2. Extended Tangent x-axis (Dotted)
     % This draws a line through the bob, perpendicular to the string
-    \draw[dashed, gray, <->] ($(bob)!1.5cm!90:(centro)$) -- ($(bob)!1.5cm!-90:(centro)$);
-    \node[gray] at ($(bob)!1.9cm!90:(centro)$) {$x$};
+    \draw[dashed, blue, <->] ($(bob)!1.5cm!90:(centro)$) -- ($(bob)!1.5cm!-90:(centro)$);
+    \node[blue] at ($(bob)!1.9cm!90:(centro)$) {$x$};
 
     % 3. Tension Force (T_f) - BLUE
-    \draw [blue,-stealth, thick] (bob) -- ($(bob)!2.0cm!(centro)$) 
+    \draw [red,-stealth, thick] (bob) -- ($(bob)!2.0cm!(centro)$) 
       node[very near end, right] {$T_f$};
 
     % Gravity Components
     % Radial component pointing away from centro (mg cos theta)
-    \draw [-stealth] (bob) -- ($(bob)!-\Gcos cm!(centro)$)
+    \draw [green, -stealth] (bob) -- ($(bob)!-\Gcos cm!(centro)$)
       coordinate (gcos)
       node[midway,above right] {$mg\cos\theta$};
       
     % Tangential component (mg sin theta)
-    \draw [-stealth] (bob) -- ($(bob)!\Gsin cm!90:(centro)$)
+    \draw [green, -stealth] (bob) -- ($(bob)!\Gsin cm!90:(centro)$)
       coordinate (gsin)
       node[midway,above left] {$mg\sin\theta$};
       
     % Gravity Vector
-    \draw [-stealth] (bob) -- ++(0,-\Gvec)
+    \draw [red, -stealth] (bob) -- ++(0,-\Gvec)
       coordinate (g)
       node[near end,left] {$mg$};
       
@@ -693,38 +698,34 @@ where $\theta$ is the angular position. Going back to our mass on a spring,
 \fill (P2) circle (0.4pt) node[above right] {$P_2$};
 
 % Horizontal dashed reference line
-\draw[dashed] (0,0) -- (0.85,0);
+\draw[dashed] (0.25,0) -- (1,0);
 
 % Radii
 \draw (O) -- (P1);
 \draw (O) -- (P2);
 
 % Radius label
-\node at (15:0.6) {$r$};
+\node at (-40:0.6) {$r$};
 
 % Arc (s)
-\draw[thick] (30:1) arc (30:-30:1);
+\draw[thick, red] (30:1) arc (30:-30:1);
 
 % Chord
-\draw (P1) -- (P2);
+\draw[blue] (P1) -- (P2);
 
 % Foot of perpendicular (EXACT)
 \coordinate (F) at ({cos(30)},0);
-
-% Dashed right triangle
-\draw[dashed] (P2) -- (F);
-\draw[dashed] (F) -- (O);
 
 % Right angle marker (visible)
 \pic [draw, angle radius=6pt] {right angle = P2--F--O};
 \pic [draw, angle radius=6pt] {right angle = P1--F--O};
 
 % Angle arcs
-\pic [draw, "$\theta$", angle radius=15, angle eccentricity=1.3]
-    {angle = P1--O--A};
-
-\pic [draw, "$2\theta$", angle radius=25, angle eccentricity=1.3, above]
+\pic [draw, -stealth, "$2\theta$", angle radius=20.5, angle eccentricity=1.5, above]
     {angle = P1--O--P2};
+
+\pic [draw, -stealth, "$\theta$", angle radius=30, angle eccentricity=1.2]
+    {angle = P1--O--A};
 
 \end{tikzpicture}
 \end{center}
@@ -751,8 +752,8 @@ by the definition of the radian measure.
 \vspace{1.5em}
 \noindent Comparing $s$ and $d$, it's clear that $s>d$:
 \begin{align*}
-    s = 2r\theta > 0 = 2r\sin\theta \\
-    s = \cancel{2r}\theta > 0 = \cancel{2r}\sin\theta \\
+    s = 2r\theta > 2r\sin\theta \\
+    s = \cancel{2r}\theta > \cancel{2r}\sin\theta \\
 \end{align*}
 
 \noindent So,

@@ -42,11 +42,11 @@ However, these notes are **much more convenient and readable** than the slides a
 - Includes extra formatting, a **table of contents**, and **bookmarks** for easy navigation  
 - Easy to search, scroll, and print for studying.
 
+## Contact
+If you notice any mistakes, missing content, or have suggestions for formatting improvements, you can reach out to me via Github, during class, or through my email: simon.joven.delvillar@gmail.com. 
+
 ## Credits 
 The TikZ figures are licensed [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/) and from tikz.net.
 
 ![![](https://licensebuttons.net/l/by-sa/4.0/88x31.png)](https://licensebuttons.net/l/by-sa/4.0/88x31.png)
 
-
-## Contact
-If you notice any mistakes, missing content, or have suggestions for formatting improvements, you can reach out to me via Github, during class, or through my email: simon.joven.delvillar@gmail.com. 

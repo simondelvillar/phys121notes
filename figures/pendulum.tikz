@@ -1,0 +1,54 @@
+\begin{tikzpicture}[scale = 1.5]
+    % save length of g-vector and theta to macros
+    \pgfmathsetmacro{\Gvec}{1.5}
+    \pgfmathsetmacro{\myAngle}{30}
+    \pgfmathsetmacro{\pendulumLength}{3}
+    
+    % calculate lengths of vector components
+    \pgfmathsetmacro{\Gcos}{\Gvec*cos(\myAngle)}
+    \pgfmathsetmacro{\Gsin}{\Gvec*sin(\myAngle)}
+
+    \coordinate (centro) at (0,0);
+    \draw[dashed,gray,-] (centro) -- ++ (0,-3.5) node (mary) [black,below]{$ $};
+    
+    % 1. Dotted circular arc path
+    \draw[dashed, gray] (270-\myAngle:\pendulumLength) arc (270-\myAngle:270+\myAngle:\pendulumLength);
+
+    % Pendulum Arm (y-axis direction)
+    \draw[thick] (centro) -- ++(270+\myAngle:\pendulumLength) coordinate (bob)
+      node[midway, left] {$L,y$};
+    
+    % Top Angle
+    \pic [draw, ->, "$\theta$", angle eccentricity=1.5] {angle = mary--centro--bob};
+
+    % 2. Extended Tangent x-axis (Dotted)
+    % This draws a line through the bob, perpendicular to the string
+    \draw[dashed, blue, <->] ($(bob)!1.5cm!90:(centro)$) -- ($(bob)!1.5cm!-90:(centro)$);
+    \node[blue] at ($(bob)!1.9cm!90:(centro)$) {$x$};
+
+    % 3. Tension Force (T_f) - BLUE
+    \draw [red,-stealth, thick] (bob) -- ($(bob)!2.0cm!(centro)$) 
+      node[very near end, right] {$T_f$};
+
+    % Gravity Components
+    % Radial component pointing away from centro (mg cos theta)
+    \draw [green, -stealth] (bob) -- ($(bob)!-\Gcos cm!(centro)$)
+      coordinate (gcos)
+      node[midway,above right] {$mg\cos\theta$};
+      
+    % Tangential component (mg sin theta)
+    \draw [green, -stealth] (bob) -- ($(bob)!\Gsin cm!90:(centro)$)
+      coordinate (gsin)
+      node[midway,above left] {$mg\sin\theta$};
+      
+    % Gravity Vector
+    \draw [red, -stealth] (bob) -- ++(0,-\Gvec)
+      coordinate (g)
+      node[near end,left] {$mg$};
+      
+    % Bottom Angle
+    \pic [draw, ->, "$\theta$", angle eccentricity=1.5] {angle = g--bob--gcos};
+    
+    % The Bob
+    \filldraw [fill=black!40,draw=black] (bob) circle[radius=0.1];
+\end{tikzpicture}

@@ -1,0 +1,78 @@
+\begin{tikzpicture}[scale=3, thick,
+    spy using outlines={
+    rectangle,
+    magnification=60,
+    size=3.5cm,
+    draw,
+    thick,
+    connect spies
+  }]
+
+% Circle
+\draw (0,0) circle (1);
+
+% Center and reference point
+\coordinate (O) at (0,0);
+\coordinate (A) at (1,0);
+\fill (O) circle (0.4pt) node[above left] {$O$};
+
+% Points on circle
+\coordinate (P1) at ({cos(-30)},{sin(-30)});
+\coordinate (P2) at ({cos(30)},{sin(30)});
+
+\fill (P1) circle (0.4pt) node[below right] {$P_1$};
+\fill (P2) circle (0.4pt) node[above right] {$P_2$};
+
+% Horizontal dashed reference line
+\draw[dashed] (0.25,0) -- (1,0);
+
+% Radii
+\draw (O) -- (P1);
+\draw (O) -- (P2);
+
+% Radius label
+\node at (-40:0.6) {$r$};
+
+% Arc (s)
+\draw[thick, red] (30:1) arc (30:-30:1);
+\node[red] at (0:1.15) {$s$};
+
+% Chord
+\draw[blue] (P1) -- (P2);
+
+% Foot of perpendicular (EXACT)
+\coordinate (F) at ({cos(30)},0);
+
+% Right angle marker (visible)
+\pic [draw, angle radius=6pt] {right angle = P2--F--O};
+\pic [draw, angle radius=6pt] {right angle = P1--F--O};
+
+% Angle arcs
+\pic [draw, -stealth, "$2\theta$", angle radius=20.5, angle eccentricity=1.5, above]
+    {angle = P1--O--P2};
+
+\pic [draw, -stealth, "$\theta$", angle radius=30, angle eccentricity=1.2]
+    {angle = P1--O--A};
+
+
+% Small-angle wedge on left side
+\coordinate (Q1) at (180:1);
+\coordinate (Q2) at (185:1);
+
+\spy on (-3,-0.135) in node at (2.2,-1.2);
+
+\fill (Q1) circle (0.4pt) node[above left] {$Q_1$};
+\fill (Q2) circle (0.4pt) node[below left] {$Q_2$};
+
+\draw (O) -- (Q1);
+\draw (O) -- (Q2);
+
+% Small angle arc (2θ small)
+\draw (180:0.25) arc (180:185:0.25);
+\node at (195:0.40) {\small $2\theta$};
+
+% Small straight-line distance (chord)
+\draw[blue, thick] (Q1) -- (Q2);
+% Small arc length
+\draw[red, thick] (180:1) arc (180:185:1);
+\end{tikzpicture}

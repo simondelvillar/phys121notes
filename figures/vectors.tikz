@@ -1,0 +1,13 @@
+\begin{tikzpicture}[scale=2.5]
+        \draw[->, thick] (0,0) -- (1.2,0)
+    node[right] (v) {$\vec{v}$};
+
+  % Into-the-page vector
+  \node at (0,0) {$\otimes$};
+  \node[above right=1pt] {$\vec{B}$};
+
+  % Force vectors
+  \draw[->, thick] (0,0) -- (0,1.2) node[above] {$\vec{F_{b}}$};
+  \draw[->, thick] (0,0) -- (1.2,0) node[right] {$\vec{v}$};
+
+\end{tikzpicture}

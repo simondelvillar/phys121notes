@@ -77,7 +77,6 @@
 % --------------------
 \title{\vspace{-2em}Physics II — Lecture Notes}
 \author{Based on class notes by Jake Bobowski}
-\date{Last updated: \compactdatetime}
 
 % --------------------
 % Document
@@ -91,7 +90,7 @@
 \newpage
 
 \begin{tcolorbox}[
-  title={Recent Updates \hfill Last updated: \compactdatetime 2:20PM},
+  title={Recent Updates \hfill Last updated: \compactdatetime 7:00PM},
   colback=gray!5,
   colframe=black!40,
   boxrule=0.5pt,
@@ -99,12 +98,13 @@
   fonttitle=\bfseries
 ]
 \begin{itemize}
-  \item \textbf{Jan 11}: Fixed graphics, small math errors, and clarifications: 
+  \item \textbf{Jan 11}: Added onto:
+  \subitem\changelink{sec:lecture2.4-pendulum-with-small-angle}{Subsection 2.4 -- Pendulum with the Small Angle Approximation}
+  \item \textbf{Jan 11}: Fixed/added graphics, small math errors, and clarifications: 
   \subitem\changelink{sec:lecture2.1-mass-on-spring}{Subsection 2.1 -- Mass on a Spring}
   \subitem\changelink{sec:lecture2.2-pendulum}{Subsection 2.2 -- Pendulum}
   \subitem\changelink{sec:aside2.2.1-rotational-motion}{Aside -- Rotational Motion}
   \subitem\changelink{sec:aside2.3.1-small-angle-approx}{Aside -- Small Angle Approximation}
-  
   
   \item \textbf{Jan 10}: Added illustration to \changelink{sec:lecture2-rotational-motion}{Lecture 2 -- Concepts of Rotational Motion and General Oscillations}
   \subitem Added illustration of atom (Subsection 1.1.1)
@@ -670,9 +670,9 @@ Use Equation (4) in (3). For our pendulum, $r = L$.
 
 or
 
-\begin{align*}
+\begin{equation}
     \dfrac{d^2 \theta}{dt^2} = -\frac{g}{L}\sin\theta
-\end{align*}
+\end{equation}
 
 where $\theta$ is the angular position. Going back to our mass on a spring,
 \begin{align*}
@@ -768,5 +768,109 @@ by the definition of the radian measure.
 \begin{align*}
      \therefore \theta > \sin\theta
 \end{align*}
+
+\vspace{1em}
+
+\noindent If we consider a small angular displacement $2\theta$ between points $Q_1$ and $Q_2$, then the red arc and blue line are approximately the same length.
+
+\begin{center}
+\begin{tikzpicture}[scale=3, thick]
+
+% Circle
+\draw (0,0) circle (1);
+
+% Center and reference point
+\coordinate (O) at (0,0);
+\coordinate (A) at (1,0);
+\fill (O) circle (0.4pt) node[above left] {$O$};
+
+% Points on circle
+\coordinate (P1) at ({cos(-30)},{sin(-30)});
+\coordinate (P2) at ({cos(30)},{sin(30)});
+
+\fill (P1) circle (0.4pt) node[below right] {$P_1$};
+\fill (P2) circle (0.4pt) node[above right] {$P_2$};
+
+% Horizontal dashed reference line
+\draw[dashed] (0.25,0) -- (1,0);
+
+% Radii
+\draw (O) -- (P1);
+\draw (O) -- (P2);
+
+% Radius label
+\node at (-40:0.6) {$r$};
+
+% Arc (s)
+\draw[thick, red] (30:1) arc (30:-30:1);
+
+% Chord
+\draw[blue] (P1) -- (P2);
+
+% Foot of perpendicular (EXACT)
+\coordinate (F) at ({cos(30)},0);
+
+% Right angle marker (visible)
+\pic [draw, angle radius=6pt] {right angle = P2--F--O};
+\pic [draw, angle radius=6pt] {right angle = P1--F--O};
+
+% Angle arcs
+\pic [draw, -stealth, "$2\theta$", angle radius=20.5, angle eccentricity=1.5, above]
+    {angle = P1--O--P2};
+
+\pic [draw, -stealth, "$\theta$", angle radius=30, angle eccentricity=1.2]
+    {angle = P1--O--A};
+
+
+% Small-angle wedge on left side
+\coordinate (Q1) at (180:1);
+\coordinate (Q2) at (185:1);
+
+\fill (Q1) circle (0.4pt) node[above left] {$Q_1$};
+\fill (Q2) circle (0.4pt) node[below left] {$Q_2$};
+
+\draw (O) -- (Q1);
+\draw (O) -- (Q2);
+
+% Small angle arc (2θ small)
+\draw (180:0.25) arc (180:185:0.25);
+\node at (195:0.40) {\small $2\theta$};
+
+% Small straight-line distance (chord)
+\draw[blue, thick] (Q1) -- (Q2);
+% Small arc length
+\draw[red, thick] (180:1) arc (180:185:1);
+\end{tikzpicture}
+\end{center}
+
+
+If $s \approx d$, then:
+\begin{align*}
+        2r\theta \approx 2r\sin\theta \\
+        \cancel{2r}\theta \approx \cancel{2r}\sin\theta \\
+\end{align*}
+
+Therefore:
+
+\begin{align*}
+    \theta \approx \sin\theta
+\end{align*}
+when $\theta$ is small-angle approximation.
+
+\subsection{Pendulum with the Small Angle Approximation}
+\label{sec:lecture2.4-pendulum-with-small-angle}
+\noindent In this case, equation (5) becomes:
+\begin{align*}
+    \dfrac{d^2\theta}{dt^2} \approx -\frac{g}{L}\theta
+\end{align*}
+
+\noindent which is mathematically identical to a mass on a spring:
+\begin{align*}
+    \dfrac{d^2x}{dt^2} = -\frac{k}{m}x
+\end{align*}
+
+
+
+
 
 \end{document}

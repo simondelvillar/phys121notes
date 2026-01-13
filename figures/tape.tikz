@@ -1,0 +1,18 @@
+\begin{tikzpicture}
+
+    % Define colors and labels in a list: {x-position/color/label}
+    \foreach \x/\col/\txt in {
+        0/red/B, 0.8/red/B,     % First pair
+        2.5/blue/T, 3.3/blue/T, % Second pair
+        5.0/green/C, 5.8/green/C % Third pair
+    } {
+        % Draw the "cellophane" box
+        % fill opacity creates the translucent effect
+        \draw[fill=\col, fill opacity=0.4, draw=\col!70!black] 
+            (\x, 0) rectangle (\x+0.6, 3);
+        
+        % Label in the center of the box
+        \node at (\x+0.3, 1.5) {\textbf{\txt}};
+    }
+
+\end{tikzpicture}

@@ -90,7 +90,7 @@
 \newpage
 
 \begin{tcolorbox}[
-  title={Recent Updates \hfill Last updated: \compactdatetime 7:00PM},
+  title={Recent Updates \hfill Last updated: 12/1/26 4:30PM},
   colback=gray!5,
   colframe=black!40,
   boxrule=0.5pt,
@@ -98,9 +98,13 @@
   fonttitle=\bfseries
 ]
 \begin{itemize}
+
+  \item \textbf{Jan 12:} Added \changelink{sec:lecture3-electric-charge}{Lecture 3 - Electric Charge}  
+  \subitem Added \changelink{sec:lecture3.1-charging-by-induction}{3.1 Charging by Induction} 
+
   \item \textbf{Jan 11}: Added onto:
   \subitem\changelink{sec:lecture2.4-pendulum-with-small-angle}{Subsection 2.4 -- Pendulum with the Small Angle Approximation}
-  \item \textbf{Jan 11}: Fixed/added graphics, small math errors, and clarifications: 
+  \subitem Fixed/added graphics, small math errors, and clarifications: 
   \subitem\changelink{sec:lecture2.1-mass-on-spring}{Subsection 2.1 -- Mass on a Spring}
   \subitem\changelink{sec:lecture2.2-pendulum}{Subsection 2.2 -- Pendulum}
   \subitem\changelink{sec:aside2.2.1-rotational-motion}{Aside -- Rotational Motion}
@@ -562,6 +566,106 @@ when $\theta$ is small-angle approximation.
 \begin{align*}
     \dfrac{d^2x}{dt^2} = -\frac{k}{m}x
 \end{align*}
+
+
+\noindent So the solution for the angular position of the pendulum is:
+\begin{align*}
+    \theta = A\cos(\omega t) \text{ where } \omega = \sqrt{\frac{g}{L}}
+\end{align*}
+
+We also know that:
+\begin{align*}
+    \omega = \frac{2\pi}{T} \Rightarrow T = 2\pi\sqrt{\frac{L}{g}}
+\end{align*}
+
+\noindent These are the results of the pendulum when the amplitude of oscillation are small.
+
+\noindent Note that the period $T$ is independent of the bob's mass and the amplitude of the oscillations.
+
+\section{Electric Charge}
+\label{sec:lecture3-electric-charge}
+Imagine the following experiment:
+
+\begin{itemize}
+    \item Take two pieces of cellophane tape stuck to one another (i.e. sticky side to non-sticky side)
+    \item Pull the pieces apart and isolate one another
+    \item Repeat with the same two pieces of tape
+    \item Take a fifth piece of tape that has not had any treatment (controlled)
+\end{itemize}
+
+\vspace{0.5em}
+\begin{center}
+    \input{figures/tape.tikz}
+\end{center}
+
+\noindent \textbf{Some observations:} 
+\begin{itemize}
+    \item The B pieces strongly repel one another, 
+    \item The T pieces also strongly repel one another, 
+    \item The T and B pieces attract, 
+    \item and the C tape weakly attracts both T and B pieces!
+\end{itemize}
+
+\noindent When T and B tapes are pulled apart, some $e^{-}$ from one piece of tape are transferred to the other. The one that lost electrons became positively charged (defecit of $e^{-}$) and the one that gained electrons became negative. We can imply from our observations that:
+\begin{enumerate}
+    \item Like charges repel,
+    \item opposites attract, 
+    \item "control" has neither gained/lost electrons, therefore it is neutral, attracted to both + and -,
+    \item and no electircal interaction between two neutral objects.
+\end{enumerate}
+
+\noindent To understand the 3rd observation, consider bringing a charged object next to a neutral one:
+
+\begin{center}
+    \input{figures/atoms-in-box.tikz}
+\end{center}
+
+\noindent Bringing a charged object:
+
+\begin{center}
+    \input{figures/polarized-box.tikz}
+\end{center}
+
+\begin{center}
+    \input{figures/polarized-box2.tikz}
+\end{center}
+
+\noindent The negative left edge is more strongly attarcted to the positibe rod than the positive right edge which is repelled by the rod. The force of attraction/repulsion depends on the distance between charges.
+
+\subsection{Charging by Induction}
+\label{sec:lecture3.1-charging-by-induction}
+\noindent\textbf{Important Question:} Can we charge an object without touching it? Yes we can!
+
+\vspace{1em}
+
+\noindent In conductors, some electrons are free to move around the material. They are not tied to one particular atom. Consider the following:
+
+\vspace{1em}
+
+\noindent\textbf{Step A:} Place two neutral conductors in contact.
+
+\begin{center}
+    \input{figures/stepa-charging-induction.tikz}
+\end{center}
+
+\noindent\textbf{Step B:} Bring a charged rod nearby (next to, not touching one of the conductors)
+
+\begin{center}
+    \input{figures/stepb-charging-induction.tikz}
+\end{center}
+
+\noindent\textbf{Step C:} With positive rod still in place, separate the conductors:
+
+\begin{center}
+    \input{figures/stepc-charging-induction.tikz}
+\end{center}
+
+\noindent\textbf{Step D:} Remove charged rod. What remains is: 
+\begin{itemize}
+    \item One conductor with charge $-Q$,
+    \item and one with charge $+Q$.
+\end{itemize}
+
 
 
 

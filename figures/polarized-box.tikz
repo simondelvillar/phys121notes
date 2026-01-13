@@ -1,0 +1,68 @@
+\begin{tikzpicture}[scale=1]
+
+% ---------------- Charged rod ----------------
+\draw[line width=1pt]
+  (-4,5) .. controls (-2,5.5) and (-1,4.5) .. (0,4)
+  -- (0,2)
+  .. controls (-1,1.5) and (-2,2.5) .. (-4,3)
+  -- cycle;
+
+% Plus charges in rod
+\foreach \x/\y in {
+  -3.5/4.6, -3.0/4.3, -2.4/4.8, -2.0/4.2,
+  -3.6/3.8, -3.0/3.5, -2.4/3.9, -2.0/3.4,
+  -3.2/2.9, -2.6/2.6, -2.1/3.0
+}{
+  \node at (\x,\y) {$+$};
+}
+
+% ---------------- Neutral object box ----------------
+\draw[line width=1pt] (1,1) rectangle (4.5,6);
+
+% ---------- Top atom (polarized) ----------
+\draw[line width=0.8pt]
+  plot[smooth cycle, tension=0.8]
+  coordinates {(3,5.3) (3.6,5.7) (4.1,5.2) (3.8,4.6)
+               (3.2,4.5) (2.6,4.8) (2.7,5.4)};
+
+% Nucleus shifted right
+\draw (3.4,5.0) circle (0.4);
+
+\foreach \x/\y in {
+  3.3/5.1, 3.5/5.1, 3.4/4.9, 3.4/5.2
+}{
+  \node at (\x,\y) {$+$};
+}
+
+% Negative charges left
+\foreach \x/\y in {
+  2.8/5.1, 2.9/4.8, 3.0/5.4
+}{
+  \node at (\x,\y) {$-$};
+}
+
+% ---------- Bottom atom (polarized) ----------
+\draw[line width=0.8pt]
+  plot[smooth cycle, tension=0.8]
+  coordinates {(3,2.7) (3.7,3.2) (4.1,2.6) (3.9,2.0)
+               (3.2,1.8) (2.6,2.2) (2.7,2.9)};
+
+\draw (3.4,2.4) circle (0.4);
+
+\foreach \x/\y in {
+  3.3/2.5, 3.5/2.5, 3.4/2.3, 3.4/2.6
+}{
+  \node at (\x,\y) {$+$};
+}
+
+\foreach \x/\y in {
+  2.8/2.6, 2.9/2.3, 3.0/2.9
+}{
+  \node at (\x,\y) {$-$};
+}
+
+% ---------------- Labels ----------------
+\node[right] at (4.8,4.5) {``Polarized neutral object''};
+\node[below] at (2.75,1) {neutral};
+
+\end{tikzpicture}

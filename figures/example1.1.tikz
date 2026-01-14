@@ -1,0 +1,41 @@
+\begin{tikzpicture}[scale=1.2]
+
+% Ceiling
+\draw (-3,3) -- (3,3);
+
+% Pivot
+\fill (0,3) circle (2pt);
+
+% Vertical symmetry line
+\draw[dashed] (0,3) -- (0,0.75);
+
+% Strings
+\draw (0,3) -- (-1.8,0.8);
+\draw (0,3) -- (1.8,0.8);
+
+% Length labels
+\node at (-1.5,2) {$L$};
+\node at (1.5,2) {$L$};
+
+% Angle labels
+\draw[->] (0,2.2) arc[start angle=270,end angle=235,radius=0.8];
+\node at (-0.3,1.9) {$\theta$};
+
+\draw[->] (0,2.2) arc[start angle=270,end angle=305,radius=0.8];
+\node at (0.3,1.9) {$\theta$};
+
+% Masses
+\fill (-1.8,0.8) circle (5pt);
+\node[left] at (-2,0.8) {$m,q$};
+
+\fill (1.8,0.8) circle (5pt);
+\node[right] at (2,0.8) {$m,q$};
+
+% Horizontal reference line
+\draw[dotted] (-2.5,0.8) -- (2.5,0.8);
+
+% Distance r
+\draw[<->, green!60!black] (-1.8,0.5) -- (1.8,0.5);
+\node[below, green!60!black] at (0,0.5) {$r$};
+
+\end{tikzpicture}

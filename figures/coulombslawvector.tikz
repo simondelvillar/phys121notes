@@ -1,0 +1,25 @@
+\begin{tikzpicture}[scale=1.2]
+
+% Reference line
+\draw[dashed] (-3,0) -- (3,0);
+
+% Charges
+\fill (-1.8,0) circle (3pt);
+\node[below] at (-1.8,0) {$q_1$};
+
+\fill (1.8,0) circle (3pt);
+\node[below] at (1.8,0) {$q_2$};
+
+% Separation r
+\draw[<->] (-1.8,0.9) -- (1.8,0.9);
+\node[above] at (0,0.9) {$r$};
+
+% r-hat from q1 to q2
+\draw[red,->,thick] (-1.8,0) -- (-0.7,0);
+\node[red,below] at (-1.25,0) {$\hat{\mathbf r}_{12}$};
+
+% Force on q2 due to q1
+\draw[blue,->,thick] (1.8,0) -- (2.9,0);
+\node[blue,above] at (2.35,0) {$\vec F_{12}$};
+
+\end{tikzpicture}

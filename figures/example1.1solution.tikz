@@ -1,0 +1,58 @@
+\begin{tikzpicture}[scale=1.2]
+
+% Ceiling
+\draw (-3,3) -- (3,3);
+
+% Pivot
+\fill (0,3) circle (2pt);
+
+% Vertical symmetry line
+\draw[dashed] (0,3) -- (0,0.75);
+
+% Strings
+\draw (0,3) -- (-1.8,0.8);
+\draw (0,3) -- (1.8,0.8);
+
+% Length labels
+\node at (-1.5,2) {$L$};
+\node at (1.5,2) {$L$};
+
+% Angle labels
+\draw[->] (0,2.2) arc[start angle=270,end angle=235,radius=0.8];
+\node at (-0.3,1.9) {$\theta$};
+
+\draw[->] (0,2.2) arc[start angle=270,end angle=305,radius=0.8];
+\node at (0.3,1.9) {$\theta$};
+
+% Masses
+\fill (-1.8,0.8) circle (5pt);
+\node[left] at (-2,0.8) {$m,q$};
+
+% Horizontal reference line
+\draw[dotted] (-2.5,0.8) -- (2.5,0.8);
+
+
+% =======================
+% Forces on right mass
+% =======================
+
+% Tension vector
+\draw[red,->,thick] (1.8,0.8) -- (0,3);
+\node[red,left] at (1.35,1.25) {$\vec T$};
+
+% Tension components
+\draw[blue,->,thick] (1.8,0.8) -- (1.8,1.7);
+\node[blue,right] at (1.8,1.25) {$T\cos\theta$};
+
+\draw[blue,->,thick] (1.8,0.8) -- (1.2,0.8);
+\node[blue,below] at (1.0,0.8) {$T\sin\theta$};
+
+% Weight
+\draw[red,->,thick] (1.8,0.8) -- (1.8,-0.2);
+\node[red,right] at (1.8,0.25) {$mg$};
+
+% Electric force
+\draw[red,->,thick] (1.8,0.8) -- (2.9,0.8);
+\node[red,below] at (2.35,0.8) {$F_e$};
+
+\end{tikzpicture}

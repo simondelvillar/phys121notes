@@ -90,7 +90,7 @@
 \newpage
 
 \begin{tcolorbox}[
-  title={Recent Updates \hfill Last updated: 12/1/26 4:30PM},
+  title={Recent Updates \hfill Last updated: 14/1/26 2:30PM},
   colback=gray!5,
   colframe=black!40,
   boxrule=0.5pt,
@@ -98,6 +98,9 @@
   fonttitle=\bfseries
 ]
 \begin{itemize}
+
+  \item \textbf{Jan 14:} Added \changelink{sec:lecture4-coulombs-law}{Lecture 4 - Coulombs Law}
+  \subitem  Added \changelink{sec:lecture4.1-vector-form}{Lecture 4 - The Vector Form of Coulombs Law}
 
   \item \textbf{Jan 12:} Added \changelink{sec:lecture3-electric-charge}{Lecture 3 - Electric Charge}  
   \subitem Added \changelink{sec:lecture3.1-charging-by-induction}{3.1 Charging by Induction} 
@@ -665,6 +668,191 @@ Imagine the following experiment:
     \item One conductor with charge $-Q$,
     \item and one with charge $+Q$.
 \end{itemize}
+
+
+\section{Coulomb's Law}
+\label{sec:lecture4-coulombs-law}
+\noindent This law governs the forces between a pair of point charges. Take this illustration for instance.
+
+\vspace{1em}
+
+\begin{center}
+    \input{figures/coulombs-law.tikz}
+\end{center}
+
+\noindent Remember that by Newton's third law: $\displaystyle|\vec{F}_{12}| = |\vec{F}_{21}|$. By careful experiments, we can deduce the following about the electric force between point charges. 
+
+\vspace{0.5em}
+\begin{enumerate}
+    \item Force is directed along the line joining the two charges. 
+    \item Force is attractive for opposite charges, repulsive for like charges. 
+    \item Force is proportional to the inverse square of the separation distance, $r$:
+    $\displaystyle |\vec{F}_{12}| = |\vec{F}_{21}| \propto \frac{1}{r^2}$
+    \item Magnitude of the electric force is proportional to both $q_1$ and $q_2$: 
+    $\displaystyle |\vec{F}_{12}| = |\vec{F}_{21}| \propto |q_1||q_2|$
+\end{enumerate}
+
+\noindent The magnitude of the electrostatic force is given by: 
+
+\begin{align*}
+    F = \frac{k_e q_1 q_2}{r^2}
+\end{align*}
+
+where $\displaystyle k_e \approx 8.99\times10^{9}\frac{Nm^2}{C^2}$.
+
+\vspace{1em}
+
+\noindent It is important to note that this is not derived from anything more fundamental, and based from experimental observations. We often see Coulomb's constant expressed as: 
+\begin{align*}
+    k_e = \frac{1}{4\pi\epsilon_{0}}
+\end{align*}
+where $\displaystyle \epsilon_{0}$ is the "permitivity of free space", and assigned the value of: 
+\begin{align*}
+    \epsilon_{0} \approx 8.85\times10^{-12}\frac{C^2}{Nm^2}
+\end{align*}
+
+\vspace{1em}
+
+\begin{tcolorbox}[
+  colback=yellow!10,
+  colframe=yellow!60!black,
+  title=\textbf{Example Question},
+  fonttitle=\bfseries,
+  boxrule=0.8pt,
+  arc=2mm
+]
+Suppose we suspend identical masses $m$, each carrying an identical charge $q$, 
+from strings of length $L$. Determine an expression for the equilibrium angle 
+$\theta$. Below is a picture of the system:
+
+\vspace{1em}
+
+\begin{center}
+\input{figures/example1.1.tikz}
+\end{center}
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+  colback=white,
+  colframe=green!50!black,
+  boxrule=0.8pt,
+  arc=1.5mm,
+  title=\textbf{Solution},
+  fonttitle=\bfseries
+]
+We should start by creating a diagram, here is the diagram with all the forces decomposed:
+
+\begin{center}
+    \input{figures/example1.1solution.tikz}
+\end{center}
+
+
+To solve for $r$, consider the right side of this "pendulum" as it creates a right-angled triangle:
+
+\begin{center}
+    \begin{tikzpicture}[scale=1.4]
+
+% Triangle
+\draw[thick] (0,0) -- (0,3) -- (2,0) -- cycle;
+
+% Labels
+\node[left] at (0,1.5) {};
+\node[right] at (1.1,1.6) {$L$};
+\node[below] at (1,0) {$\dfrac{r}{2}$};
+
+% Angle theta
+\draw[->] (0,2.2) arc[start angle=270,end angle=315,radius=0.6];
+\node at (0.35,2.1) {$\theta$};
+\end{tikzpicture}
+\end{center}
+
+\noindent The sides are related through $\sin\theta$:
+\begin{align*}
+    \sin\theta = \frac{r/2}{L} \\
+    \fbox{$\displaystyle\therefore r = 2L\sin\theta$}
+\end{align*}
+
+\noindent Express the forces in component form (Newton's 2nd Law) starting in the $y$-direction:
+\begin{align*}
+    F_{\text{net}} = 0 = T\cos\theta - mg \\
+    \fbox{$\displaystyle\therefore T = \frac{mg}{\cos\theta}$}
+\end{align*}
+
+\noindent Similarly in the x-direction: 
+\begin{align*}
+    F_{\text{net}} = 0 = F_e - T\sin\theta
+\end{align*}
+
+Using the expression of $T$ in the y-direction, substitute into the $x$-direction equation: 
+\begin{align*}
+    F_e = T\sin\theta = \left(\frac{mg}{\cos\theta}\right) \cdot \sin\theta
+\end{align*}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[
+  colback=white,
+  colframe=green!50!black,
+  boxrule=0.8pt,
+  arc=1.5mm
+]
+
+\noindent From Coulomb's Law: 
+\begin{align*}
+    F_e = \frac{k_e q_1 q_2}{r^2} \Rightarrow \frac{k_e q^2}{r^2} \Rightarrow \frac{k_e q^2}{\left(2L\sin\theta\right)} \\
+    \therefore\frac{k_e q^2}{4L^2\sin^2\theta} = mg\frac{\sin\theta}{\cos\theta}
+\end{align*}
+
+\noindent Now put $\theta$ on one side of the expression: 
+\begin{align*}
+    \frac{\sin^3\theta}{\cos\theta} = \frac{k_e q^2}{4mgL^2}
+\end{align*}
+
+\noindent We could use a numerical approximation to solve LHS = RHS, but remember we have the small angle approximation:
+\begin{align}
+    \sin\theta \approx \theta \\
+    \cos\theta \approx 1
+\end{align}
+
+Applying (6) and (7) into our expression:
+\begin{align*}
+    \frac{\theta^3}{1} &= \frac{k_e q^2}{4mgL^2} \\
+    \vspace{0.5em}
+    \Rightarrow \theta &= \left(\frac{k_e q^2}{4mgL^2}\right)^{1/3}
+\end{align*}
+\end{tcolorbox}
+
+\subsection{The Vector Form of Coulomb's Law}
+\label{sec:lecture4.1-vector-form}
+
+\noindent Suppose we want the vector form of Coulomb's Law. We will use this illustration: 
+\begin{center}
+    \input{figures/coulombslawvector.tikz}
+\end{center}
+
+\noindent We will define the unit vector $\displaystyle\hat{r}_{12}$:
+\begin{itemize}
+    \item vector of length 1 along the $x$-axis,
+    \item $\displaystyle\hat{r}_{12}$ points from $q_1$ to $q_2$.
+\end{itemize}
+
+\noindent Consider the vector equation form:
+\begin{align*}
+    \vec{F}_{12} = \frac{k_e q_1 q_2}{r^2}\hat{r}_{12}
+\end{align*}
+
+\noindent If the product of $q_1$ and $q_2$ is positive (i.e. both positive or negative charges), then $\vec{F}_{12}$ points away from $q_1$, meaning it is repulsive. 
+
+\vspace{0.5em}
+
+\noindent If the product of $q_1$ and $q_2$ is negative (i.e. opposite charges), then $\vec{F}_{12}$ points towards $q_1$, meaning it is attractive.
+
+
+
+
+
+
 
 
 

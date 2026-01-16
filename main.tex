@@ -1,4 +1,4 @@
-\documentclass[11pt]{article}
+\documentclass[12pt]{article}
 
 % --------------------
 % Packages
@@ -47,7 +47,6 @@
 \fancyhead[L]{Physics II}
 \fancyhead[R]{Lecture Notes}
 \fancyfoot[C]{\thepage}
-
 % --------------------
 % Section Formatting
 % --------------------
@@ -848,15 +847,56 @@ Applying (6) and (7) into our expression:
 
 \noindent If the product of $q_1$ and $q_2$ is negative (i.e. opposite charges), then $\vec{F}_{12}$ points towards $q_1$, meaning it is attractive.
 
+\pagebreak
 
+\section{The Electric Field}
 
+\noindent The electric field is denoted by the symbol $\displaystyle\vec{E}$. Imagine a picture where a charge $\displaystyle q_1$ creates a $\displaystyle\vec{E}$-field in a space that exerts forces on other nearby charges. 
 
+\begin{center}
+    \input{figures/efield.tikz}
+\end{center}
 
+\noindent From this illustration, the force on $\displaystyle q_2$ due to $\displaystyle \vec{E}_1$ is:
+{\large
+\begin{align*}
+    \displaystyle \vec{F}_{12} = q_2 \vec{E}_1
+\end{align*}
+}
 
+\noindent The value $\displaystyle\vec{F}_{12}$ is known from Coulomb's Law, which precisely has a value of:
+{\large
+\begin{align*}
+    \displaystyle \vec{F}_{12} = k_e \dfrac{q_1 q_2}{r^2} \hat{r}_{12}
+\end{align*}
+}
 
+\noindent Therefore we require that: 
+\begin{align*}
+   \displaystyle q_2 \vec{E}_1 = k_e \dfrac{q_1 q_2}{r^2} \hat{r}_{12}
+\end{align*}
 
+$\displaystyle q_2$ cancels out: 
+\begin{align*}
+    \displaystyle \cancel{q_2} \vec{E}_1 = k_e \dfrac{q_1 \cancel{q_2}}{r^2} \hat{r}_{12}
+\end{align*}
 
+\noindent Therefore the $\vec{E}$-field due to point charge $\displaystyle q_1$ is: 
+\begin{align}
+    \displaystyle \vec{E}_1 = k_e \dfrac{q_1 }{r^2} \hat{r}_{12}
+\end{align}
+where $\displaystyle\hat{r}$ is a radial unit vector from the $\displaystyle q_1$ origin.
 
+\subsection{Graphing electric field lines}
+\noindent For a positive charge $\displaystyle q_1$, $\vec{E}$ points away from the charge. Usually these lines are drawn as continous lines: 
+\begin{center}
+    \includegraphics[scale = 1.5]{figures/efieldlinepos.pdf}
+\end{center}
 
+\noindent In this picture, the spacing between the field lines determines the strength of the field lines. 
+
+\pagebreak
+
+\noindent Since $\displaystyle \vec{E} = k_e \dfrac{q}{r^2}\hat{r}$, if $q < 0$, then $\displaystyle \vec{E}$ is anti-parallel to $\hat{r}$ which always points radially outwards. 
 
 \end{document}

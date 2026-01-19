@@ -89,7 +89,7 @@
 \newpage
 
 \begin{tcolorbox}[
-  title={Recent Updates \hfill Last updated: 17/1/26 1:10PM},
+  title={Recent Updates \hfill Last updated: 19/1/26 2:30PM},
   colback=gray!5,
   colframe=black!40,
   boxrule=0.5pt,
@@ -97,6 +97,8 @@
   fonttitle=\bfseries
 ]
 \begin{itemize}
+
+  \item \textbf{Jan 19:} Added \changelink{sec:lecture6-long-rod-ring}{(In progress) Lecture 6 - "Infinitely" long rod and "finite" ring}  
 
   \item \textbf{Jan 17:} Added \changelink{sec:lecture5-electric-field}{Lecture 5 - Electric Field}  
 
@@ -908,5 +910,114 @@ where $\displaystyle\hat{r}$ is a radial unit vector from the $\displaystyle q_1
 \end{center}
 
 \noindent \textbf{Core Concept.} Electric field lines originate from positive charges and terminate on negative charges. 
+
+
+\section{"Infinitely" long rod and "finite" ring}
+\label{sec:lecture6-long-rod-ring}
+
+\noindent Calculate the electrie field due to a uniformly charges road that is infinitely long.
+
+\vspace{1.5em}
+
+
+
+
+\noindent We can select a section of rod of length $\Delta x$ that is small. That section has a individual charge $\Delta q$ which we treat as a point charge.
+\vspace{1em}
+
+\noindent \textbf{Note:} For every $\Delta q$ to the right of the $y$-axis (red), there is a corresponding $\Delta q$ placed symmentrically on the left (in blue).
+
+\vspace{1em}
+
+\noindent The pairs of charges create a $\displaystyle \vec{E}_{\text{net}}$ at $P$ with $x$-components that cancel and $y$-components that add. 
+
+\vspace{1em}
+
+\noindent By symmetry, the $\displaystyle \vec{E}_{\text { net }}$ points perpendicularly away from the rod, regardless of where P is placed. From the problem last Friday, we know that the contribution to $\vec{E}$ from $\Delta q$ along the $y$-axis is given by:
+\begin{align*}
+    \displaystyle \vec{E}_{\Delta q, y} = \dfrac{k_e \Delta q \, y}{\left(x^2+y^2\right)^{3/2}}
+\end{align*}
+
+This is the magnitude of the $\vec{E}$ contribution from a single $\Delta q$ along the $y$-axis. 
+
+
+
+\vspace{2em}
+
+\noindent The $\displaystyle\vec{E}_{\text {net}}$ due to the entire rod is found by summing all the contributions from individual $\Delta q$'s that make up the charged rod.
+\begin{align*}
+    E_{\text{net}} = \sum_{i} \dfrac{k_e \Delta q \, y}{\left(x_i^{2}+y^2\right)^{3/2}}
+\end{align*}
+
+where $i$ is all the individual $\Delta q$'s.
+
+
+\subsection{Linear Charge Density}
+
+This is precisely charge per unit of length of the rod. This is given by the Greek letter "lambda":
+\begin{align*}
+    \lambda = \dfrac{Q}{L}
+\end{align*}
+where $Q$ is the total charge in a section of rod of length $L$.
+
+\noindent Therefore, a section of length $\Delta x$ has charge:
+\begin{align*}
+    \Delta q &= Q \dfrac{\Delta x}{L} \\
+             &= \left(\frac{Q}{L}\right)\Delta x \\
+             &= \lambda\Delta x \\
+             &= \Delta q = \lambda\Delta x   
+\end{align*}
+
+\subsection{Lecture 6 continued}
+With this in mind:
+\begin{align*}
+    E_{\text{net}} \approx \sum_{i} \dfrac{k_e \lambda \Delta x \, y}{\left(x_i^{2}+y^2\right)^{3/2}}
+\end{align*}
+
+This is a Riemann sum! In the limit as $\Delta x \to 0$, $\Delta q$'s become exact point charges:
+\begin{align*}
+    E_{\text{net}} &\approx \sum_{i} \dfrac{k_e \lambda \Delta x \, y}{\left(x_i^{2}+y^2\right)^{3/2}} \Delta x \\[6pt]
+                   &\Rightarrow \int \dfrac{k_e \lambda \, y}{\left(x_i^{2}+y^2\right)^{3/2}} \, dx
+\end{align*}
+
+\noindent We can pull out constants from the integral. In this case $k_e$ and $\lambda$ are constants:
+\begin{align*}
+    k_e \lambda\int \dfrac{y}{\left(x^2+y^2\right)^{3/2}} \, dx
+\end{align*}
+
+\noindent To evaluate this intergal, we will consider the following:
+\begin{equation}
+    \dfrac{d}{dx} \left(\dfrac{y}{\left(\sqrt{x^2+y^2}\right)}\right) = \dfrac{y^2}{\left(x^2+y^2\right)^{3/2}}  
+\end{equation}
+
+Rewriting (9) is the same as: 
+\begin{equation}
+    \Rightarrow \dfrac{1}{y}\dfrac{d}{dx}\left[\dfrac{x}{\sqrt{x^2+y^2}}\right]
+\end{equation}
+
+\noindent We can take equation (10) and plug it into the original integral:
+\begin{align*}
+    E_{\text{net}} &= k_e \lambda \int \dfrac{1}{y}\dfrac{d}{dx}\left(\dfrac{x}{\sqrt{x^2+y^2}}\right) \, dx \\[6pt]
+                   &\Rightarrow \dfrac{k_e \lambda}{y}\int \dfrac{d}{dx}\left(\dfrac{x}{\sqrt{x^2+y^2}}\right) \, dx
+\end{align*}
+
+\noindent To simplify further we can use the Fundamental theorem of Calculus (FTC):
+\begin{equation}
+    \int\limits_{a}^{b}\dfrac{df}{dx} = f(b)-f(a)
+\end{equation}
+
+\noindent Using the logic in (11) into the infinite rod: 
+\begin{align*}
+    E_{\text{net}} &= \dfrac{k_e \lambda}{y}\int\limits_{-\infty}^{\infty}\dfrac{d}{dx}\left(\dfrac{x}{\sqrt{x^2+y^2}}\right) \, dx\\[6pt]
+                   &\Rightarrow \dfrac{k_e \lambda}{y} \left[\dfrac{\infty}{\sqrt{\infty^{2}+y^2}}-\dfrac{-\infty}{\sqrt{\infty^{2}+y^2}}\right]\\[6pt]
+                   &\Rightarrow \dfrac{k_e \lambda}{y} \left[1-(-1)\right]
+\end{align*}
+
+\noindent Finally, the magnitude of $\vec{E}$ due to an uniformly charged rof that is infinite in length is:
+\begin{align*}
+    \vec{E}_{\text{net}} = \dfrac{2 k_e \lambda}{y}
+\end{align*}
+
+
 
 \end{document}

@@ -919,8 +919,9 @@ where $\displaystyle\hat{r}$ is a radial unit vector from the $\displaystyle q_1
 
 \vspace{1.5em}
 
-
-
+\begin{center}
+    \includegraphics[scale=1.5]{figures/rodsetup.pdf}
+\end{center}
 
 \noindent We can select a section of rod of length $\Delta x$ that is small. That section has a individual charge $\Delta q$ which we treat as a point charge.
 \vspace{1em}
@@ -1017,6 +1018,54 @@ Rewriting (9) is the same as:
 \begin{align*}
     \vec{E}_{\text{net}} = \dfrac{2 k_e \lambda}{y}
 \end{align*}
+
+\subsection{Rings}
+Let us try another continous distribution of charge. This time, a ring. 
+
+\vspace{2em}
+
+\noindent We need to find $\vec{E}$ at $P$ along the $z$-axis that passes through the centre of uniformly charged ring of radius $r$. By symmetry, $\vec{E}_{\text{net}}$ due to the charged ring will point along the $z$-axis.
+
+\vspace{1em}
+
+\noindent $\displaystyle \vec{E}_{\Delta q, z}$ can be found by the following:
+\begin{align*}
+    \vec{E}_{\Delta q, z} &= E_{\Delta q}\cos\theta\\
+                          &= \dfrac{z}{\left(z^2+r^2\right)}
+\end{align*}
+
+Therefore, 
+\begin{align*}
+    \vec{E}_{\Delta q, z} = \dfrac{k_e \Delta q}{z^2+r^2} \dfrac{z}{z^2+r^2} = \dfrac{k_e \Delta q z}{\left(z^2+r^2\right)^{3/2}}
+\end{align*}
+
+noting that $\Delta q$, $z$, and $r$ are constants for any $\Delta q$ on the ring.
+
+\vspace{1.5em}
+
+\noindent Modelling after the previous problem: 
+\begin{align*}
+    E_{\text{net}} &= \sum_{i} E_{\Delta q, z} \\
+                   &= \sum_{i} \dfrac{k_e \Delta q_{i} z}{\left(z^2+r^2\right)^{3/2}}\\
+                   &= \dfrac{k_e z}{\left(z^2+r^2\right)^{3/2}} \sum_{i} \Delta q_{i}
+\end{align*}
+
+where $\displaystyle\sum_{i}\Delta q_{i}$ is the total charge of ring $Q$.
+
+\vspace{1em}
+
+\noindent Therefore,
+
+\begin{equation*}
+    E_{\text{net}} = \dfrac{k_e Q z}{\left(z^2+r^2\right)^{3/2}}
+\end{equation*}
+
+\noindent pointing down along the $z$-axis for $Q<0$.
+
+
+
+
+
 
 
 
